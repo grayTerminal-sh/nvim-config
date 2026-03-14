@@ -8,24 +8,34 @@ Objectif : un setup léger, lisible, facile à maintenir et à hacker.
 ## 📂 Structure
 
 ```bash
-~/.config/nvim
+❯ tree .config/nvim/
+.config/nvim/
 ├── init.lua
-├── lazy-lock.json        # généré par lazy.nvim
-└── lua
-    ├── config
-    │   ├── lazy.lua      # bootstrap + lazy.setup({ import = "plugins" })
-    │   └── maps.lua      # keymaps globaux
-    └── plugins
-        ├── bufferline.lua
-        ├── cmp.lua
-        ├── edit.lua
-        ├── filebrowser.lua
-        ├── git.lua
-        ├── lsp.lua
-        ├── neowiki.lua
-        ├── treesitter.lua
-        ├── ui.lua
-        └── (autres modules à venir)
+├── lazy-lock.json
+├── lua
+│   ├── config
+│   │   ├── lazy.lua
+│   │   └── maps.lua
+│   └── plugins
+│       ├── bufferline.lua
+│       ├── cmp.lua
+│       ├── colorscheme.lua
+│       ├── filebrowser.lua
+│       ├── gitsign.lua
+│       ├── lsp.lua
+│       ├── mini_map.lua
+│       ├── neowiki.lua
+│       ├── nvim-autopair.lua
+│       ├── nvim-tree.lua.old
+│       ├── render-markdown.lua
+│       ├── starter.lua
+│       ├── telescope.lua
+│       ├── treesitter.lua
+│       ├── ui.lua
+│       └── vim-fugitive.lua
+└── readme.md
+
+4 directories, 21 files
 ```
 
 - init.lua : options de base, leader, undo persistant, puis require("config.maps") et require("config.lazy").
@@ -132,9 +142,13 @@ Keymaps personnalisés :
 
 8. Git (optionnel)
 - lewis6991/gitsigns.nvim pour les signes Git dans la marge.
+- tpope/vim-fugitive
 
 9. Notes / Wiki
 - echaya/neowiki.nvim comme wiki moderne (successeur de Vimwiki). 
+
+10. starter
+- nvim-mini/mini.starter
 
 Support Markdown + Treesitter, GTD, multiple wikis.
 
