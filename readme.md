@@ -38,8 +38,8 @@ Objectif : un setup léger, lisible, facile à maintenir et à hacker.
 
     Optionnel mais recommandé sur Arch :
 
-        - tree-sitter-cli (via npm, AUR ou cargo) pour Treesitter. [web:50][web:55]
-        - lua-language-server, pyright (via Mason ou pacman) pour LSP. [web:141][web:142]
+        - tree-sitter-cli (via npm, AUR ou cargo) pour Treesitter. 
+        - lua-language-server, pyright (via Mason ou pacman) pour LSP. 
 
 ## Installation
 Sauvegarder une éventuelle config existante :
