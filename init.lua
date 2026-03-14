@@ -46,3 +46,6 @@ if vim.fn.isdirectory(undodir) == 0 then
 end
 vim.opt.undodir = undodir
 vim.opt.undofile = true
+
+-- Mini
+require('mini.map').setup()
