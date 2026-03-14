@@ -1,0 +1,169 @@
+# Neovim config – minimal, modulaire, orienté dev
+
+Config Neovim from scratch, en **Lua**, avec [lazy.nvim](https://github.com/folke/lazy.nvim) comme gestionnaire de plugins.  
+Objectif : un setup léger, lisible, facile à maintenir et à hacker.
+
+---
+
+## 📂 Structure
+
+```bash
+~/.config/nvim
+├── init.lua
+├── lazy-lock.json        # généré par lazy.nvim
+└── lua
+    ├── config
+    │   ├── lazy.lua      # bootstrap + lazy.setup({ import = "plugins" })
+    │   └── maps.lua      # keymaps globaux
+    └── plugins
+        ├── bufferline.lua
+        ├── cmp.lua
+        ├── edit.lua
+        ├── filebrowser.lua
+        ├── git.lua
+        ├── lsp.lua
+        ├── neowiki.lua
+        ├── treesitter.lua
+        ├── ui.lua
+        └── (autres modules à venir)
+```
+
+- init.lua : options de base, leader, undo persistant, puis require("config.maps") et require("config.lazy").
+- lua/config/ : configuration générique (lazy, keymaps).
+- lua/plugins/ : un fichier par “gros bloc” de plugins (LSP, UI, Git, notes, etc.).
+
+🔧 Prérequis
+- Neovim ≥ 0.9 (idéalement 0.10+).
+- Git.
+
+    Optionnel mais recommandé sur Arch :
+
+        - tree-sitter-cli (via npm, AUR ou cargo) pour Treesitter. [web:50][web:55]
+        - lua-language-server, pyright (via Mason ou pacman) pour LSP. [web:141][web:142]
+
+## Installation
+Sauvegarder une éventuelle config existante :
+
+```bash
+mv ~/.config/nvim ~/.config/nvim.backup-$(date +%s)
+```
+
+Cloner ce repo :
+
+```bash
+git clone https://github.com/<ton-user>/<ton-repo-nvim>.git ~/.config/nvim
+```
+
+Lancer Neovim :
+
+```bash
+nvim
+lazy.nvim se clone automatiquement.
+```
+
+Les plugins se téléchargent au premier :Lazy sync.
+
+Lancer les checks de santé :
+
+```
+:checkhealth
+:checkhealth nvim-treesitter
+```
+
+## Fonctionnalités
+
+1. Base
+Options Neovim de base (numeros relatifs, indent propre, clipboard système, undo persistant). [web:64][web:272]
+Keymaps Lua propres (config/maps.lua).
+
+2. Gestionnaire de plugins
+folke/lazy.nvim
+
+    avec import modulaire :
+
+```lua
+    lua
+    require("lazy").setup({
+      { import = "plugins" },
+    }, ...)
+```
+
+3. UI / Navigation
+
+- Thème: folke/tokyonight.nvim. 
+- Statusline : nvim-lualine/lualine.nvim.
+- Tabs / buffers : akinsho/bufferline.nvim
+- Mode buffers, diagnostics LSP dans chaque “onglet”, icône de fermeture par buffer. [web:254][web:256]
+- Fuzzy finder : nvim-telescope/telescope.nvim:
+    <leader>ff : find_files (inclut les fichiers cachés). 
+    <leader>fg : live_grep (avec --hidden). 
+- File browser : telescope-file-browser.nvim, mappé sur <leader>e. 
+
+4. Syntaxe / Treesitter
+
+- nvim-treesitter/nvim-treesitter
+    ensure_installed : Lua, Python, Bash, Markdown, Vimscript, etc.
+    Highlight + indent activé
+
+5. LSP
+    - mason.nvim + mason-lspconfig.nvim.
+    - nvim-lspconfig avec configuration minimale.
+    - lua_ls pour Lua, avec vim en global autorisé.
+
+Mappings LSP globaux :
+
+gd, gr, K, <leader>rn, <leader>ca, [d, ]d, etc. 
+
+6. Completion
+- hrsh7th/nvim-cmp
+
+Sources : LSP, buffer, path (cmp-nvim-lsp, cmp-buffer, cmp-path).
+
+Mappings :
+    Ctrl-j / Ctrl-k : naviguer.
+    Enter : confirmer (sélection par défaut). 
+
+7. Édition / Confort
+- windwp/nvim-autopairs (InsertEnter). 
+
+Keymaps personnalisés :
+- Indent visuel avec Tab / Shift-Tab.
+- Navigation buffers via bufferline (<leader>bp, <leader>bn, <leader>1..9).
+
+8. Git (optionnel)
+- lewis6991/gitsigns.nvim pour les signes Git dans la marge.
+
+9. Notes / Wiki
+- echaya/neowiki.nvim comme wiki moderne (successeur de Vimwiki). 
+
+Support Markdown + Treesitter, GTD, multiple wikis.
+
+Mappings typiques (configurable) : <leader>ww pour ouvrir le wiki, navigation entre pages, tâches, etc.
+
+## Keymaps principaux
+- Leader = Space.
+
+Fichiers / Navigation
+- <leader>e : file browser Telescope.
+- <leader>ff : Telescope find_files.
+- <leader>fg : Telescope live_grep.
+
+Buffers
+- <leader>bp / <leader>bn : buffer précédent / suivant.
+- <leader>1..9 : aller au buffer N (bufferline).
+
+LSP
+- gd : définition.
+- gr : références.
+- K : hover.
+- <leader>rn : rename.
+- <leader>ca : code action.
+- [d / ]d : diagnostics précédent / suivant.
+
+Édition
+- <leader>w : save.
+- <leader>q : quit.
+- <leader>h : clear search.
+
+En Visuel : Tab / Shift-Tab → indent/désindent la sélection.
+
