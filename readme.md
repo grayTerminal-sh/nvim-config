@@ -4,6 +4,9 @@ Config Neovim from scratch, en **Lua**, avec [lazy.nvim](https://github.com/folk
 Objectif : un setup léger, lisible, facile à maintenir et à hacker.
 
 ---
+## Screenshot
+
+![FY59 nvim starter](assets/screen.jpg)
 
 ## 📂 Structure
 
