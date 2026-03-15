@@ -8,8 +8,8 @@ Objectif : un setup léger, lisible, facile à maintenir et à hacker.
 ## 📂 Structure
 
 ```bash
-❯ tree .config/nvim/
-.config/nvim/
+❯ tree
+.
 ├── init.lua
 ├── lazy-lock.json
 ├── lua
@@ -32,10 +32,12 @@ Objectif : un setup léger, lisible, facile à maintenir et à hacker.
 │       ├── telescope.lua
 │       ├── treesitter.lua
 │       ├── ui.lua
-│       └── vim-fugitive.lua
+│       ├── vim-fugitive.lua
+│       └── witch-key.lua
 └── readme.md
 
-4 directories, 21 files
+4 directories, 22 files
+
 ```
 
 - init.lua : options de base, leader, undo persistant, puis require("config.maps") et require("config.lazy").
