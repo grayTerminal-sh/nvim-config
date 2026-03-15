@@ -10,6 +10,7 @@ Objectif : un setup léger, lisible, facile à maintenir et à hacker.
 ```bash
 ❯ tree
 .
+├── assets
 ├── init.lua
 ├── lazy-lock.json
 ├── lua
@@ -23,10 +24,12 @@ Objectif : un setup léger, lisible, facile à maintenir et à hacker.
 │       ├── filebrowser.lua
 │       ├── gitsign.lua
 │       ├── lsp.lua
+│       ├── mini-icons.lua
 │       ├── mini_map.lua
 │       ├── neowiki.lua
 │       ├── nvim-autopair.lua
 │       ├── nvim-tree.lua.old
+│       ├── outline.lua
 │       ├── render-markdown.lua
 │       ├── starter.lua
 │       ├── telescope.lua
@@ -36,7 +39,7 @@ Objectif : un setup léger, lisible, facile à maintenir et à hacker.
 │       └── witch-key.lua
 └── readme.md
 
-4 directories, 22 files
+5 directories, 24 files
 
 ```
 
@@ -137,6 +140,7 @@ Mappings :
 
 7. Édition / Confort
 - windwp/nvim-autopairs (InsertEnter). 
+- hedyhli/outline.nvim
 
 Keymaps personnalisés :
 - Indent visuel avec Tab / Shift-Tab.
