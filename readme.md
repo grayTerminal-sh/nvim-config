@@ -155,6 +155,9 @@ Support Markdown + Treesitter, GTD, multiple wikis.
 Mappings typiques (configurable) : <leader>ww pour ouvrir le wiki, navigation entre pages, tâches, etc.
 
 ## Keymaps principaux
+
+- folke/which-key.nvim
+
 - Leader = Space.
 
 Fichiers / Navigation
