@@ -8,6 +8,7 @@
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "a676ab7282da8d651e175118bcf54483ca11e46d" },
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
+  "mini.icons": { "branch": "main", "commit": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e" },
   "mini.map": { "branch": "stable", "commit": "234eaf5cbcaee320d87e96465fbb534aa05b301e" },
   "mini.starter": { "branch": "main", "commit": "cdf909e5bda577e09c61fa6d9a36bb2a88dbc636" },
   "neowiki.nvim": { "branch": "main", "commit": "87a9746538ddc69378116a884d09d560fe4b858e" },

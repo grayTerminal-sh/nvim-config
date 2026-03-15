@@ -23,7 +23,7 @@ return {
             "",
         }, "\n"),
         items = {
-            starter.sections.recent_files(5),
+            starter.sections.recent_files(8),
             {
                 name = "Open Wiki",
                 action = "edit ~/wiki/index.md",  -- adapte le chemin
