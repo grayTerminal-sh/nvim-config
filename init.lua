@@ -35,6 +35,34 @@ require("config.lazy")
 
 -- Colorscheme
 vim.cmd.colorscheme("tokyonight")
+-- Lire ~/.config/theme : "dark" ou "light"
+local mode = "dark"
+local ok, file = pcall(io.open, vim.fn.expand("~/.config/theme"), "r")
+if ok and file then
+  local line = file:read("*l")
+  if line == "light" or line == "dark" then
+    mode = line
+  end
+  file:close()
+end
+
+-- Config TokyoNight avant le colorscheme (optionnel mais conseillé)
+local ok_tn, tn = pcall(require, "tokyonight")
+if ok_tn then
+  tn.setup({
+    -- style par défaut (dark)
+    style = "night",
+    light_style = "day", -- utilisé quand background = light
+  })
+end
+
+if mode == "light" then
+  vim.o.background = "light"
+  vim.cmd.colorscheme("tokyonight-day")
+else
+  vim.o.background = "dark"
+  vim.cmd.colorscheme("tokyonight-night")
+end
 
 -- Keymaps (fichier séparé)
 require("config.maps")

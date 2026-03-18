@@ -169,6 +169,9 @@ Mappings typiques (configurable) : <leader>ww pour ouvrir le wiki, navigation en
 
 - Leader = Space.
 
+Mini.maps
+- <leader>p : show mini.map
+
 Fichiers / Navigation
 - <leader>e : file browser Telescope.
 - <leader>ff : Telescope find_files.

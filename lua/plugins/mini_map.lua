@@ -4,6 +4,7 @@ return {
     branch = "stable",
     config = function()
       local map = require("mini.map")
+
       map.setup({
         symbols = {
           encode = map.gen_encode_symbols.dot("4x2"),
@@ -15,13 +16,13 @@ return {
         },
       })
 
-      -- Ouvre la minimap automatiquement sur les fichiers normaux
-      vim.api.nvim_create_autocmd("BufWinEnter", {
-        callback = function(args)
-          if vim.bo[args.buf].buftype == "" then
-            map.open()
-          end
-        end,
+      -- PAS d'ouverture auto : bloc autocmd commenté
+
+      -- <leader>p : toggle minimap
+      vim.keymap.set("n", "<leader>p", function()
+        map.toggle()
+      end, {
+        desc = "Toggle minimap",
       })
     end,
   },
